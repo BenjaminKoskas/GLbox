@@ -1,0 +1,3 @@
+[submodule "GLbox/vendor/spdlog"]
+	path = GLbox/vendor/spdlog
+	url = https://github.com/gabime/spdlog.git
