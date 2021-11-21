@@ -11,7 +11,7 @@ int main(int ac, char **av)
 	GLB_INFO("Sandbox initialiazed!");
 
 	auto app = GLbox::CreateApplication();
-	app->run();
+	app->Run();
 	delete app;
 }
 

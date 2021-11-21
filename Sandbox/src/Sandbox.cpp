@@ -3,15 +3,8 @@
 class Sandbox : public GLbox::Application 
 {
 public:
-	Sandbox() 
-	{
-
-	}
-
-	~Sandbox()
-	{
-
-	}
+	Sandbox() {}
+	~Sandbox() {}
 };
 
 GLbox::Application* GLbox::CreateApplication()

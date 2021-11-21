@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="GLbox">
+      <UniqueIdentifier>{61282F0D-CD3C-57BE-96BE-FA1D029253EF}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\GLbox.h" />
+    <ClInclude Include="src\GLbox\Application.h">
+      <Filter>GLbox</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GLbox\Core.h">
+      <Filter>GLbox</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GLbox\EntryPoint.h">
+      <Filter>GLbox</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GLbox\Log.h">
+      <Filter>GLbox</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\GLbox\Application.cpp">
+      <Filter>GLbox</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GLbox\Log.cpp">
+      <Filter>GLbox</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

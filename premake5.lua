@@ -10,6 +10,13 @@ workspace "GLbox"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+IncludeDir = {}
+IncludeDir["GLFW"] = "GLbox/vendor/GLFW/include"
+IncludeDir["GLAD"] = "GLbox/vendor/GLAD/include"
+
+include "GLbox/vendor/GLFW"
+include "GLbox/vendor/GLAD"
+
 project "GLbox"
 	location "GLbox"
 	kind "SharedLib"
@@ -26,7 +33,17 @@ project "GLbox"
 
 	includedirs
 	{
-		"%{prj.name}/vendor/spdlog/include"
+		"%{prj.name}/src",
+		"%{prj.name}/vendor/spdlog/include",
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.GLAD}"
+	}
+
+	links
+	{
+		"GLFW",
+		"GLAD",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"
@@ -37,7 +54,8 @@ project "GLbox"
 		defines
 		{
 			"GLB_PLATFORM_WINDOWS",
-			"GLB_BUILD_DLL"
+			"GLB_BUILD_DLL",
+			"GLFW_INCLUDE_NONE"
 		}
 
 		postbuildcommands
@@ -48,6 +66,7 @@ project "GLbox"
 	filter "configurations:Debug"
 		defines "GLB_DEBUG"
 		symbols "On"
+		buildoptions "/MDd"
 
 	filter "configurations:Release"
 		defines "GLB_RELEASE"
@@ -74,7 +93,9 @@ project "Sandbox"
 	includedirs
 	{
 		"GLbox/vendor/spdlog/include",
-		"GLbox/src"
+		"GLbox/src",
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.GLAD}"
 	}
 
 	links
@@ -89,7 +110,8 @@ project "Sandbox"
 
 		defines
 		{
-			"GLB_PLATFORM_WINDOWS"
+			"GLB_PLATFORM_WINDOWS",
+			"GLFW_INCLUDE_NONE"
 		}
 
 	filter "configurations:Debug"
